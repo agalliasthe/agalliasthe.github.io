@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>Adv Int Lab II</title>
+
+        <meta name="description" content="Computational Chemistry">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+        <!-- modernizer -->
+        <script src="dist/js/modernizr.min.js"></script>
+        
+        <!-- fonts -->
+        <link rel="stylesheet" type="text/css" 
+            href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800%7CHandlee">
+
+        <!-- jquery ui -->
+        <link rel="stylesheet" href="dist/css/jqueryui.min.css" />
+
+        <!-- app -->
+        <link rel="stylesheet" href="dist/css/app.min.css" />
+        
+        <!-- Math -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+          src="https://example.com/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        
+    </head>
+
+    <body>
+
+        <a href="index.html#" class="sidebar__toggle">
+            <i class="icon icon--menu"></i>
+            <i class="icon icon--cross"></i>
+        </a>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav class="sidebar">
+
+            <h2 class="sidebar__title">Chem 425</h2>
+
+            <ul class="sidebar__nav">
+
+                <li class="sidebar__item"><a href="index.html">Home</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="index.html#introduction">Introduction</a></li>
+                        <li class="sidebar__item"><a href="index.html#notebook">Notebook</a></li>
+                        <li class="sidebar__item"><a href="index.html#notation">Notation</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab1.html">Laboratory 1</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab1.html#installations">Installations</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#avogadro">Avogadro</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#commandline">The Command Line</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#gaussian">Gaussian</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#assignment1">Assignment 1</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab2.html">Laboratory 2</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab2.html#excel">Fitting Data</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#ar-binding">Argon Binding Curve</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#namd">NAMD</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#rdf">Radial Distribution Functions</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#assignment2">Assignment 2</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab3.html">Laboratory 3</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab3.html#mdanalysis">MD data analysis</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#mo">Molecular Orbitals</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#assignment3">Assignment 3</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab4.html">Laboratory 4</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab4.html#protein">Protein Simulation</a></li>
+                        <li class="sidebar__item"><a href="lab4.html#proteinanalysis">Analysis of Protein Data</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="report.html">Lab Report</a></li>
+            </ul>
+
+        </nav>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="content">
+            
+            <section class="content__main">
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block">
+                    
+                    <header class="header">
+                        
+                        <h1 class="header__title">
+                            <a href="lab3.html">Laboratory 3</a>
+                            <small>Molecular Dynamics Analysis and Molecular Orbitals</small>
+                        </h1>
+                        
+                    </header>
+                    
+                </section>
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Laboratory 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block" id="mdanalysis">
+                    
+                    <h2>
+                        <a href="lab1.html#mdanalysis" class="anchor">
+                            Argon, Water, and TRP-Cage Analysis
+                        </a>
+                    </h2>
+                    
+                    <p>Today we will analyze all those long trajectories that we set up to run last week. We had a few hiccups, so Shiv reran some of the data so that we’d have something nice to look at this week. We will combine and distribute all the class data so that everyone has a wide range of temperatures to look at. We will also simulate another water box and a small solvated peptide.</p>
+                    
+                    <strong>Radial Distribution Function of Argon</strong>
+                    <ol>
+                        <li>Each of the remote computers have a folder called <code>lab2_shiv/</code>. Transfer this folder to your local computer with WinSCP or CyberDuck. This folder contains data from 2 runs at different temperatures. Each group has unique data.</li>
+                        <li>Load the trajectories into VMD as we have done before.</li>
+                        <li>Calculate the RDF. Make sure you set the <TT>max R</TT> setting to <TT>20.0</TT></li>
+                        <li>Save the rdf to a file as <code>ARGON___.dat</code> replacing the underscores with the simulation temperature. The temperature is found in the namd.conf file.</li>
+                        <li>Compare the RDFs. What are your observations? Send the .dat files to Shiv (upadhya1@duq.edu)</li>
+                    </ol>
+                    
+                    <strong>Heat Capacity of Water</strong>
+                    
+                    <p>We are going to calculate the heat capacity of water. To calculate <em>C<sub>p</sub></em> we need to run a constant pressure simulation. To calculate <em>C<sub>v</sub></em> we need to run a constant volume simulation. These folders have been set up and are called <code>waterboxNPT</code> and <code>waterboxNVT</code>, respectively.</p> 
+                    <ol>
+                        <li>Navigate into each of these directories and submit the jobs.</li>
+                        <li>Once the simulations have been completed, use the .sh scripts provided to extract total energy and total potential energy. These will allow you to calculate the <em>C<sub>p</sub></em> and <em>C<sub>v</sub></em>:</li>
+                            <br> $$C_v=\frac{\langle E^2 \rangle-\langle E \rangle^2}{k_BT^2}$$
+                            <br> $$C_p=\frac{\langle U^2 \rangle-\langle U \rangle^2}{k_BT^2}$$
+                            <br> where <em>E</em> is the total energy and <em>U</em> is the potential energy.</li>
+                        <li> What is the relationship between <em>C<sub>p</sub></em> and <em>C<sub>v</sub></em>? (This is google-able.) Do these results agree with this relationship?</li>
+                    </ol>
+                    
+                    <strong>Radial Distribution Functions and Root-Mean-Square Deviation of Solvated TRP-Cage</strong>
+                    <p>We are also going to simulate a small protein called the TRP-Cage. The necessary files have been provided in the directory <code>TRP-Cage</code></p>
+                    <ol>
+                        <li>Run the job, transfer the data to your local computer, and load the trajectory into VMD. (You should be getting good at this now!)</li>
+                        <li>To make things easier to visualize go to “Graphics &#8594; Representations”</li>
+                        <li>For selected atoms type <code>ions</code>. Change this representation’s drawing method to VDW.</li>
+                        <li>Click Create Rep and for selected atoms type <code>Backbone</code>. Change this representation’s drawing method to Ribbon.</li>
+                        <li>Click Create Rep and for selected atoms type <code>Water</code>. Change this representation’s drawing method to Line.</li>
+                        <li>A way to track if a simulation has equilibrated is to look at how much the structure of the protein has changed since the beginning of the simulation. This is done by aligning the center of mass for the protein and calculating the root mean squared displacement (RMSD) of each backbone atom. Usually the RMSD rise quickly at the start of the simulation as a protein relaxes and plateaus once the system is equilibrated.</li>
+                        <li>Go to analysis in VMD and select the “RMSD trajectory” tool. Click align and calculate. Then save the data using the drop down in the top left. Plot this in excel.</li>
+                        <li>Now we get to see the real power of RDFs. Calculate 2 RDFs: the first between <code>ions</code> and <code>type OT</code>, and the second between <code>backbone</code> and <code>type OT</code>. The first is the structure of water around the ions and the second around the protein.</li>
+                    </ol>
+                </section>
+                
+                <section class="block" id="mo">
+                    
+                    <h2>
+                        <a href="lab1.html#mo" class="anchor">
+                            Molecular Orbitals
+                        </a>
+                    </h2>
+                    
+                    <p>And now for something completely different. In this project, we will investigate the molecular orbitals and molecular orbital energies of the homonuclear diatomic molecules N<sub>2</sub> and O<sub>2</sub> in both ground and excited states. We will construct molecular orbital energy diagrams and will compare and contrast their structures, orbitals, and energies. In addition, we will characterize the molecular orbitals as &#963; bonding or antibonding, &#960; bonding or antibonding.</p>
+                    
+                    <div><strong>Construction of MO energy diagrams of N<sub>2</sub> and O<sub>2</sub></strong></div>
+                    <ol>
+                        <li>Sketch the MO energy diagrams of N<sub>2</sub> and O<sub>2</sub>. Make sure to label and fill the atomic orbitals as well as the molecular orbitals. Be careful of the 1π and 3σ orbitals! they switch order between N<sub>2</sub> and O<sub>2</sub>. Identify each orbital as gerade or ungerade symmetry.</li>
+                        <li>Report the multiplicities of N<sub>2</sub> and O<sub>2</sub> that are predicted by your MO diagrams</li>
+                        <li>Compute and report the bond order of N<sub>2</sub> and N<sub>2</sub> from the MO energy diagram.</li>
+                    </ol>
+                    <div></div>
+                    <div><strong>Geometry Optimization and Energy Calculations of N<sub>2</sub> and N<sub>2</sub></strong></div>
+                    <ol>
+                        <li>Using Avogadro, build a N<sub>2</sub> molecule. Minimize the energy within Avogadro to get a reasonable starting bond length</li>
+                        <li>Using the Extensions -> Gaussian input generator, generate a Gaussian input file named <strong>n2-singlet.com</strong> with the following specifications:
+                            <ul>
+                                <li>Calculation: Geometry Optimization</li>
+                                <li>Theory: RHF</li>
+                                <li>Basis: 6-31G(d)</li>
+                                <li>Charge: 0</li>
+                                <li>Multiplicity: 1</li>
+                                <li>Make sure the Checkpoint button is clicked! (this enables viewing of the molecular orbitals)</li>
+                            </ul></li>
+                        <li>After you generate the input file, you will need to edit the type of job that it is running.
+                            <ul>
+                                <li>Change the route section line to read
+                                    <br><TT>#n RHF/6-31G(d) Opt Pop=Full</TT></li>
+                                <li>Then make sure that there is a line that reads
+                                    <br><TT>%Chk=n2-singlet.chk</TT>
+                                    <br>right above it.</li>
+                            </ul></li>
+                        <li>Move the file to the directory on your computer named <code>lab3/n2-singlet/</code>
+                            and run the job using the .pbs script.</li>
+                        <li>The results you need for the singlet N<sub>2</sub> molecule include the equilibrium bond length and electronic energy.
+                            <ul>
+                                <li>Measure the bond length with the measure tool within Avogadro</li>
+                                <li>The electronic energies will be found in the .log file
+                                    <code>grep</code> the log file for <code>"SCF Done"</code> to find the energy (in Hartrees)</li>
+                            </ul></li>
+                        <li>Repeat these steps for triplet N<sub>2</sub>, singlet O<sub>2</sub>, and triplet O<sub>2</sub>
+                            <ul>
+                                <li>Note: For the singlet states use RHF (restricted Hartree Fock) as the method</li>
+                                <li>For each of the triplet states use UHF (unrestricted Hartree Fock) as the method</li>
+                            </ul></li>
+                    </ol>
+                    <strong>Classification of Molecular Orbitals of N<sub>2</sub> and O<sub>2</sub></strong>
+                    <ol>
+                        <li>To view the MO orbitals of our molecules, we need to convert the format of our formatted checkpoint file. Navigate to the <code>n2-singlet/</code> directory and enter the following command:
+                            <pre>formchk -3 n2-singlet.chk n2-singlet.FChk</pre></li>
+                        <li>Transfer the n2-singlet.FChk file to your Desktop and open it with Avogadro.</li>
+                        <li>The list of molecular orbitals should appear to the right of the molecule in the Avogadro window. Click on the listing for the HOMO in the window. The highest occupied molecular orbital should be displayed.</li>
+                        <li>Under Surfaces in the display types list on the left of the screen, you can play with the settings: surface type, color, opacity. Find something pretty and save a bunch of pictures!</li>
+                        <li>Repeat the process for <em>triplet</em> O<sub>2</sub></li>
+                    </ol>
+                    
+                </section>
+                
+                <section class="block" id="assignment3">
+                    
+                    <h2>
+                        <a href="lab1.html#assignment3" class="anchor">
+                            Assignment 3
+                        </a>
+                    </h2>
+                    
+                    <br><strong>Make a publication-quality plot of the MO diagram you sketched at the beginning of the Molecular Orbitals post.</strong>
+                    <ol>
+                        <li>Sketch the MO energy diagrams of N<sub>2</sub> and O<sub>2</sub>. Make sure to label and fill the atomic orbitals as well as the molecular orbitals. Be careful of the 1π and 3σ orbitals! they switch order between N<sub>2</sub> and O<sub>2</sub>. Identify each orbital as gerade or ungerade symmetry.</li>
+                        <li>Report the multiplicities of N<sub>2</sub> and O<sub>2</sub> that are predicted by your MO diagrams</li>
+                        <li>Compute and report the bond order of N<sub>2</sub> and O<sub>2</sub> from the MO energy diagram.</li>
+                    </ol>
+                    <strong>Prepare a table summarizing your results for each of the four species and answer the following questions:</strong>
+                    <ol>
+                        <li>Bond length and electronic energy of each of the four species.
+                            <ul>
+                                <li>Which is lower in energy, singlet or triplet N<sub>2</sub>?</li>
+                                <li>Which is lower in energy, singlet or triplet O<sub>2</sub>?</li>
+                                <li>Do these results agree with your prediction of the multilplicity from the MO energy diagram that you constructed above?</li>
+                            </ul></li>
+                        <li>Compare the equilibrium bond lengths of singlet and triplet N<sub>2</sub> and O<sub>2</sub> to the experimental values using percent differences.
+                            <ul>
+                                <li>How much does the bond length change in singlet vs triplet N<sub>2</sub>?</li>
+                                <li>How much does the bond length change in singlet vs triplet O<sub>2</sub>?</li>
+                                <li>Which species exhibits a larger change between the singlet and triplet bond lengths, N<sub>2</sub> or O<sub>2</sub>? Justify your findings by analyzing the bond order in each of the four species.</li>
+                            </ul></li>
+                        <li>Calculate the difference in energy between the singlet and triplet states for each molecule and compare to experiment with a percent difference. Make sure that you are citing the lowest energy singlet to the lowest energy triplet transition in your experimental reference.
+                            <ul>
+                                <li>What are the orders of magnitude of the singlet-triplet energy differences for N<sub>2</sub> and O<sub>2</sub>? (You may want to consider the experimental values for this discussion). Why is one singlet-triplet energy difference so much larger than the other one? Use your MO diagram to explain.</li>
+                            </ul>
+                        </li>
+                        <li>View your molecular orbitals
+                            <ul>
+                                <li>Classify each of the MOs as gerade or ungerade. , &#963; or &#960; and bonding or antibonding.</li>
+                                <li>List the number of nodes associated with each. As the energy goes up so does the number of nodes! Which of the MOs are degenerate?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+            </section>
+            
+        </section>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Other  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- jquery, jqueryui -->
+            <script src="dist/js/jquery-plus-ui.min.js"></script>
+        
+        <!-- foundation, prettify, jqueryui, twemoji -->
+            <script src="dist/js/bower-libs.min.js"></script>
+
+        <!-- twemojiWrapper, prettyPre -->
+            <script src="dist/js/helpers.js"></script>
+
+        <!-- app -->
+        <script src="dist/js/examples.js"></script>
+        <script src="dist/js/styling.js"></script>
+        <script src="dist/js/app.js"></script>
+  
+    </body>
+
+</html>

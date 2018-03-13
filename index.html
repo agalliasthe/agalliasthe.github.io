@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <title>Adv Int Lab II</title>
+        
+        <meta name="description" content="Computational Chemistry">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        
+        <!-- modernizer -->
+        <script src="dist/js/modernizr.min.js"></script>
+        
+        <!-- fonts -->
+        <link rel="stylesheet" type="text/css" 
+            href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800%7CHandlee">
+            
+        <!-- jquery ui -->
+        <link rel="stylesheet" href="dist/css/jqueryui.min.css" />
+        
+        <!-- app -->
+        <link rel="stylesheet" href="dist/css/app.min.css" />
+        
+        <!-- Math -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+          src="https://example.com/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <a href="index.html#" class="sidebar__toggle">
+            <i class="icon icon--menu"></i>
+            <i class="icon icon--cross"></i>
+        </a>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav class="sidebar">
+        
+            <h2 class="sidebar__title">Chem 425</h2>
+            
+            <ul class="sidebar__nav">
+            
+                <li class="sidebar__item"><a href="index.html">Home</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="index.html#introduction">Introduction</a></li>
+                        <li class="sidebar__item"><a href="index.html#notebook">Notebook</a></li>
+                        <li class="sidebar__item"><a href="index.html#notation">Notation</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab1.html">Laboratory 1</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab1.html#installations">Installations</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#avogadro">Avogadro</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#commandline">The Command Line</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#gaussian">Gaussian</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#assignment1">Assignment 1</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab2.html">Laboratory 2</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab2.html#excel">Fitting Data</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#ar-binding">Argon Binding Curve</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#namd">NAMD</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#rdf">Radial Distribution Functions</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#assignment2">Assignment 2</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab3.html">Laboratory 3</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab3.html#mdanalysis">MD data analysis</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#mo">Molecular Orbitals</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#assignment3">Assignment 3</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab4.html">Laboratory 4</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab4.html#protein">Protein Simulation</a></li>
+                        <li class="sidebar__item"><a href="lab4.html#proteinanalysis">Analysis of Protein Data</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="report.html">Lab Report</a></li>
+            </ul>
+            
+        </nav>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="content">
+            
+            <section class="content__main">
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block">
+                    
+                    <header class="header">
+                        
+                        <h1 class="header__title">
+                            <a href="index.html">Advanced Integrated Laboratory II</a>
+                            <small>Introduction to Computational Chemistry</small>
+                        </h1>
+                        
+                    </header>
+                    
+                </section>
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block" id="introduction">
+                
+                    <h2>
+                        <a href="index.html#introduction" class="anchor">
+                            Introduction
+                        </a>
+                    </h2>
+                    
+                    <p>The second module of Advanced Integrated Laboratory will be an introduction to computational chemistry. You've spent the last several weeks studying peptides with Dr. Van Stipdonk. Our ultimate goal for this laboratory will be to determine the lowest energy structures for some peptides. Each week we will build on our knowledge and augment our toolbox of computational methods to complete this task.</p>
+                    
+                    <p>Each week will have an Assignment related to the tasks of the week. The small parts of the assignment should be able to be completed within the frame of the laboratory, but you can have up to a week after the lab is done to complete it. There will be some parts of each week that are related to peptides. All of this data will be saved until the end and will go into your final lab report.</p>
+                    
+                </section>
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Notebook ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block" id="notebook">
+                    
+                    <h2>
+                        <a href="index.html#notebook" class="anchor">
+                            What to keep in your lab notebook
+                        </a>
+                    </h2>
+                    
+                    <p>Computational chemists have a self-documenting electronic 'paper' trail for all of their 'experiments'. Unlike other labs you've done, there is no need to record weights and measures of chemicals or concentrations of reactants that you analyzed. <em>However</em>, it is still important to document things. I'd recommend keeping track of the following </p>
+                    <ul>
+                      <li>When you learn a new command (like <code>grep</code>) record what it is and how to use it. There are lots of options associated with commands and we end up using the same commands over and over. It is useful to have a list so that you don't have to keep looking them up.</li>
+                      <li>You will have jobs crash. Record the problem, file name, how you figured out the problem, and the solution. For example:
+                          <br>Problem: job timed out (~/shermanm/lab1/failedjobs/water45.log). Error is listed at the end of the log file
+                          <br>Solution: change line #3 in input file to accommodate longer wall clock time. Used checkpoint file (<code>water45.chk</code>) to restart (next run is <code>water46.inp</code>)</li>
+                      <li>You will have jobs complete! Record which file name (both the input and log file) is the good one and where that file is located. (<code>~/shermanm/lab1/successful/water93.log</code>) We will generate lots of input files and lots of data. It's good to keep track of what worked. Keep the input and the output and all required files all in the same directory. <span style="text-decoration: underline;">Keep all files that you would need to rerun the exact same job</span>.</li>
+                      <li>It also is good to have some overall organization to your directory. Consider sketching out your directory tree with all your folders and subfolders once in a while so that you are putting your files in some sort of logical place where you can go back and find them.</li>
+                      <li>Some of the tasks we do (like making movies) require many non-intuitive steps. It is more than just loading one file. It might also help to record these processes with notes to yourself on what you found confusing the first time through.</li>
+                    </ul>
+                    
+                </section>
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Notation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block" id="notation">
+                    
+                    <h2>
+                        <a href="index.html#notation" class="anchor">
+                            Notation used on this website
+                        </a>
+                    </h2>
+                    
+                    <p>Instructions on this website will be conveyed in a few different ways. By convention all computer commands and input/output files will be written in monospaced font.</p>
+                    
+                    <ul>
+                      <li> One of the first things we will learn is how to use the command line. If there is a command that you will type in the command line it will be written like this: <code>grep</code>. This will just list the command. An example of how to use it will follow. Sometimes we will write it like this:  <code>grep [string]</code>. If it is written like this, the part in square brackets will be replaced by something. It will be entered into the command line without the brackets. For example,  <code>grep Betsy</code> (This command searches a file for the string "Betsy".) </li>
+                      <li> There are also occasions where it is more clear to put the command (or series of commands) in a box set apart. You should type these exactly as they are shown. Press Enter after you type each command. 
+                          <br><br>
+                          <pre>
+                              cd lab1/
+                              ls
+                          </pre></li>
+                      <li> When modifying lines of an input file we will write it like this:  
+                          <br><TT>
+                              <br>%Chk=checkpoint.chk
+                              <br>#n RHF/3-21G Opt
+                          </TT></li><br>
+                      <li>We will make use of many equations throughout the laboratory to explain the theory behind what we are doing. The important equations will be set on their own line like this: 
+                          <br> $$\hat{H}\psi = E\psi$$
+                          <br> Sometimes, things don't come through quite right. If for some reason you come across an equation that looks like this:
+                          <br><TT><center>\hat{H}\psi = E\psi</center></TT>
+                          <br> you should bring it to my attention and I will fix it! </li>
+                    </ul>
+                    
+                </section>
+                
+            </section>
+            
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Other  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- jquery, jqueryui -->
+        <script src="dist/js/jquery-plus-ui.min.js"></script>
+        
+        <!-- foundation, prettify, jqueryui, twemoji -->
+        <script src="dist/js/bower-libs.min.js"></script>
+        
+        <!-- twemojiWrapper, prettyPre -->
+        <script src="dist/js/helpers.js"></script>
+        
+        <!-- app -->
+        <script src="dist/js/examples.js"></script>
+        <script src="dist/js/styling.js"></script>
+        <script src="dist/js/app.js"></script>
+        
+    </body>
+    
+</html>

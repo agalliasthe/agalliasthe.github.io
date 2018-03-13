@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>Adv Int Lab II</title>
+
+        <meta name="description" content="Computational Chemistry">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+        <!-- modernizer -->
+        <script src="dist/js/modernizr.min.js"></script>
+        
+        <!-- fonts -->
+        <link rel="stylesheet" type="text/css" 
+            href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800%7CHandlee">
+
+        <!-- jquery ui -->
+        <link rel="stylesheet" href="dist/css/jqueryui.min.css" />
+
+        <!-- app -->
+        <link rel="stylesheet" href="dist/css/app.min.css" />
+        
+        <!-- Math -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+          src="https://example.com/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        
+    </head>
+
+    <body>
+
+        <a href="index.html#" class="sidebar__toggle">
+            <i class="icon icon--menu"></i>
+            <i class="icon icon--cross"></i>
+        </a>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav class="sidebar">
+
+            <h2 class="sidebar__title">Chem 425</h2>
+
+            <ul class="sidebar__nav">
+
+                <li class="sidebar__item"><a href="index.html">Home</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="index.html#introduction">Introduction</a></li>
+                        <li class="sidebar__item"><a href="index.html#notebook">Notebook</a></li>
+                        <li class="sidebar__item"><a href="index.html#notation">Notation</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab1.html">Laboratory 1</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab1.html#installations">Installations</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#avogadro">Avogadro</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#commandline">The Command Line</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#gaussian">Gaussian</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#assignment1">Assignment 1</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab2.html">Laboratory 2</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab2.html#excel">Fitting Data</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#ar-binding">Argon Binding Curve</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#namd">NAMD</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#rdf">Radial Distribution Functions</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#assignment2">Assignment 2</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab3.html">Laboratory 3</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab3.html#mdanalysis">MD data analysis</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#mo">Molecular Orbitals</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#assignment3">Assignment 3</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="lab4.html">Laboratory 4</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab4.html#protein">Protein Simulation</a></li>
+                        <li class="sidebar__item"><a href="lab4.html#proteinanalysis">Analysis of Protein Data</a></li>
+                    </ul>
+
+                <li class="sidebar__item"><a href="report.html">Lab Report</a></li>
+            </ul>
+
+        </nav>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="content">
+            
+            <section class="content__main">
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block">
+                    
+                    <header class="header">
+                        
+                        <h1 class="header__title">
+                            <a href="lab2.html">Laboratory 2</a>
+                            <small>Argon Dimer and NAMD</small>
+                        </h1>
+                        
+                    </header>
+                    
+                </section>
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Laboratory 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block" id="excel">
+                    
+                    <h2>
+                        <a href="lab1.html#excel" class="anchor">
+                            Fitting Data with Excel
+                        </a>
+                    </h2>
+                    
+                    <br><img src="img/excel.png" align=”right” hspace=”50” vspace=”50” alt="excel" width="184" height="184" />
+                    
+                    <p>Analysis of experimental data often involves constructing a curve to fit the data. The parameters of the curve then (hopefully) give insight to the behavior of the reaction or some property of the substance being studied. We can then use the fit to predict behavior under different conditions.</p>
+                    
+                    <p>We fit calculated data in theoretical chemistry too - and for the exact same reason! For example, we can measure properties of molecules (like the free energy of a configuration, as you did in the Avogadro module) and predict how the energy might be affected in another configuration.</p>
+                    
+                    <p>There are lots of different ways to construct a fit and lots of ways to quantify how well the model fits the data. There are also a lot of different programs and methods available to carry out this task. We are only going to touch on one of these: the method of least squares using Excel. I am sure that you are all well-versed with the linear regression tools in Excel (finding slope and intercept). In the next assignment, we need to fit non-linear data to give insight to the parameters of our system. If you are unfamiliar with the use of the Solver add-in on Excel, here is a short tutorial on how to use it to fit non-linear data.</p>
+                    
+                    <br>First things first; here is some data for you to work with: <a href="https://dl.dropboxusercontent.com/u/19768642/chem425/files/FittingPractice.xlsx">Fitting Practice</a>. <br>There are a couple things about Excel that I am assuming you know. If you are unsure of any of these things, please don't hesitate to ask.<br><br>
+                    <ul>
+                        <li>Calculating values with formulas
+                            <ul>
+                                <li><code>=sum(A44:A54)</code></li>
+                                <li><code>=cos(F2)</code></li>
+                                <li><code>=sin(F2*D2)</code></li>
+                                <li>etc...</li>
+                            </ul></li>
+                        <li>Using relative and absolute cell references (<code>B4</code> vs <code>$B4</code> vs <code>B$4</code> vs <code>$B$4</code>)</li>
+                        <li>Making and modifying charts and graphs, including
+                            <ul>
+                                <li>Adding new series to the graph</li>
+                                <li>Changing how the data points are displayed</li>
+                                <li>Adding axes and chart titles</li>
+                                <li>Formatting text on the graph</li>
+                            </ul></li>
+                    </ul>
+                    
+                    <br><strong>Damped Oscillations</strong>
+                    <ol>
+                        <li>Open up the Excel workbook to the first tab: Damped Oscillations. I've set up four columns for you: time, raw position data, fit data, and square differences. Time and Raw Data are provided. The fit data and square differences will be calculated below.</li>
+                        <li>The first thing to do is to plot your raw data vs time. When you do, you'll end up with something like this:
+                            <br><br><br><center><img src="img/oscillator1.jpg" alt="biphenyl" width="499" height="380" /></center><br><br>
+                            <br>Clearly oscillatory with some sort of exponential decay.</li>
+                        <li>We are going to fit the data to the following function:
+                            $$x(t)=Ae^{-\lambda t}\cos(\omega t + \delta)$$
+                            This equation plots position as a function of time. The function contains four parameters for us to optimize to find the best fit: <em>A</em>, &#955;, &#969;, and &#948;.</li>
+                        <li>I've set aside space for the parameters in cells <code>G2:G5</code>. To fill in Column C (Fit data) we need to use Column A (Time) and the parameters to calculate a value for every given time. Feel free to add columns if you want to break up the function into parts (i.e. calculate the exponential piece in one cell, the cosine piece in the next cell, then take the product of them in a third cell, if that is easier) Make sure to use relative cell references for time and absolute cell references for each of your parameters.</li>
+                        <li>Add the Fit data to your chart. Having the parameters all set to 1 makes for an awful fit! We'll change that in a minute.</li>
+                        <li>Raw data should be displayed on a graph as individual points (not connected by a line), however, it is more appropriate to display a line of best fit as a line with no points. Something like this:
+                            <br><br><br><center><img src="img/oscillator2.jpg" alt="biphenyl" width="499" height="380" /></center><br><br></li>
+                        <li>Next, play with your parameters. See how each one affects the line of best fit. If I change A to 100, my plot looks like this:
+                            <br><br><br><center><img src="img/oscillator3.jpg" alt="biphenyl" width="499" height="380" /></center><br><br></li>
+                        <li>Change your parameters until you have something close (doesn't have to be perfect, but does have to be kind of close)
+                            <br><br><br><center><img src="img/oscillator4.jpg" alt="biphenyl" width="499" height="380" /></center><br><br></li>
+                        <li>Now we need to quantify how well our curve fits the data. Fill in Column D with the square of the difference between the raw data and our fit data for each time: (raw-fit)<sup>2</sup></li>
+                        <li>I labeled a cell, <code>G7</code>, to calculate the sum of all the square differences (Column D). Fill in this cell. The smaller the number, the better the fit.</li>
+                        <li>At this point it is probably a good idea to make sure to save what you have done. Sometimes Excel crashes on these next few steps.</li>
+                        <li>Excel has a cool add-in: Solver. Check the Analysis block under the Data tab; it looks like a question mark. If you don't see it, you'll have to add it.
+                            Go to Tools &#8594; Add-Ins. Check the box next to Solver.Xlam and click OK.
+                            <br><center><img src="img/solver.jpg" alt="solver" width="183" height="80" /></center></li>
+                        <li>Open Solver. There are several fields to fill out:
+                            <ul>
+                                <li>Set Objective - This is the cell that we want to minimize: the sum of the square differences (<code>$G$7</code>)</li>
+                                <li>To - choose Min. We want to adjust the parameters until our objective cell reaches a minimum.</li>
+                                <li>By Changing Variable Cells - set this to the range of cells containing the values of your parameters: <code>$G$2:$G$5</code></li>
+                                <li>We have no Constraints to set</li>
+                            </ul></li>
+                        <li>Now hit solve. The program will think a little while then change the values in the parameter cells to what it thinks are the optimal values (the ones that minimize your objective cell)</li>
+                        <li>Look at your graph. Does the curve fit the data? If you are satisfied with the result, keep the Solver solution by clicking OK. This will change the values in the parameter cells. (<code>G2:G5</code>) If you reject the Solver solution, the cells will return to the values that you had before you ran the analysis.
+                            <br><br><br><center><img src="img/oscillator5.jpg" alt="biphenyl" width="499" height="380" /></center><br><br></li>
+                        <li>Now you have the line of best fit for this function and this data! The parameters you found can predict behavior at different times. What was the position at Time = 0.5 seconds according to your best fit function?</li>
+                    </ol>
+                    The next two sets of data will be on your Assignment for Laboratory 2.
+                    
+                </section>
+                
+                <section class="block" id="ar-binding">
+                    
+                    <h2>
+                        <a href="lab1.html#ar-binding" class="anchor">
+                            Argon Binding Curve
+                        </a>
+                    </h2>
+                    
+                    <br><br><br><center><img src="img/argon_dimer_potential.png" alt="ar_dimer" width="300" height="210" /></center><br><br></li>
+                    
+                    <p>Our next task in this module is to simulate a box of Argon atoms and calculate certain properties related to it. But before we get to that, we need some information about how argon behaves!</p>
+                    
+                    <p>Argon atoms will exist as single, non-bonded particles. They will interact with each other according to some potential due to the van der Waals interaction between the particles. Our goal is to find and characterize this interaction by constructing a binding curve. The binding curve will tell us the equilibrium distance between individual atoms as well as the energy required to separate the atoms from each other. We will construct the curve with single point energy calculations using Gaussian, then fit the curve using Excel to determine the parameters that characterize the potential.</p>
+                    
+                    <strong>Constructing the Curve</strong>
+                    <ol>
+                        <li>Log on to your computer as you did last time</li>
+                        <li>Navigate into the folder named <code>lab2/</code></li>
+                        <li>When you list the contents, you will see ten input files and ten submission scripts. We want to find the energy between two argon atoms at various distances to construct a curve. If you open one of the files in vim (recall, <code>vi Ar01.inp</code>) you will see listed a method and basis set, a title, the charge and multiplicity, and the coordinates of two argon atoms in xyz.</li>
+                        <li>One of the argon atoms is at the origin, (0,0,0), the other is 3 &#8491; away at (3,0,0). We are going to increase the distance between the argon atoms by changing the x-coordinate on the second atom.</li>
+                        <li>Coordinate with a second group to get a good sampling of distances between 3 &#8491; and 10 &#8491;. Each group should run 10 jobs, so when you exchange data you will have twenty points for your curve.</li>
+                        <li>You don't need to adjust the method or basis set - only the coordinate of the second Ar atom.</li>
+                        <li>Submit your jobs as you did last time. The submission script is now called <code>submit01.pbs</code> instead of <code>g16.pbs</code>. You can treat it the same way: <code>qsub submit01.pbs</code></li>
+                        <li>To find the final single point energy <code>grep</code> the log file for <code>'SCF Done'</code> (remember <code>grep</code> is case sensitive. If you want to grep all the log files at once, you can use *: <code>grep 'SCF Done' *log</code></li>
+                    </ol>
+                    
+                    <strong>Fitting the Data in Excel</strong>
+                    <ol>
+                        <li>Record your distance and energy data in an Excel spreadsheet.</li>
+                        <li>As you did before, shift the y axis so that the infinitely separated dimeris the zero of energy. Scale the y axis so that you are using kcal/mol instead of Hartree.</li>
+                        <li>Using the non-linear curve fitting method you learned today, fit the data to the following function,
+                            $$V_{LJ}(r) = \varepsilon \left[ \left( \frac{r_0}{r} \right)^{12} - 2\left( \frac{r_0}{r} \right)^{6} \right]$$
+                            where <em>r</em> is the distance between the atoms, <em>r</em><sub>0</sub> is the equilibrium distance, and &#949; is the depth of the well at <em>r</em><sub>0</sub>. This function is known as a Lennard-Jones potential. (The two parameters that you will use to fit your curve are <em>r</em><sub>0</sub> and &#949;)</li>
+                        <li>This curve is a little bit more difficult to fit than our practice examples! <strong>You want the fit to be best around the well</strong>. Try restricting the area of the fit to the data points near the minimum. Check in with me before proceeding to the next step.</li>
+                    </ol>
+                    
+                </section>
+                
+                <section class="block" id="namd">
+                    
+                    <h2>
+                        <a href="lab1.html#namd" class="anchor">
+                            NAMD
+                        </a>
+                    </h2>
+                    <br><center><img src="img/namd.jpg" alt="namd" width="296" height="97" /></center><br><br></li>
+                    <p>Nanoscale Molecular Dynamics (NAMD) is a program which performs molecular dynamics simulations. It was developed through a collaboration between the Theoretical and Computational Biophysics (TCB) group and the Parallel Programming Laboratory (PPL) at the University of Illinois at Urbana-Champaign. We will conduct a simple molecular dynamics simulation of argon molecular interacting with a Lennard-Jones potential.</p>
+                    
+                    To run a simulation we will need the following files:
+                    <ol>
+                        <li><strong>PDB File</strong> - The Protein Data Bank (PDB) has created a file format to store the atomic coordinates for structures, which creatively have the extension (.pdb). Although we aren't simulating a protein, this is the file format we will use as this is what NAMD recognizes.</li>
+                        <li><strong>PSF File</strong> - The Protein Structure File contains structure information about the system of interest. This contains information about the <em>type</em> of interactions that the atoms will feel. There could be bond, angle, torsion and nonbonded interactions. In the example today, Argon is only interacting through nonbonded interactions.</li>
+                        <li><strong>Force Field Parameter File</strong> - The parameter file contains information about the <em>strength</em> of the interactions in the system. This file will contain the LJ parameters for the Argon interaction.</li>
+                        <li><strong>Configuration File</strong> - The configuration file acts as the input file. This file will control all of the features of the simulation.</li>
+                    </ol>
+                    Input Parameters
+                    <ol>
+                        <li>Take a look at the <strong>argon_box.pbd</strong> file. The PDB file format is a great file format which is used in both the experimental and computational worlds. It unifies the language with which researchers can talk about structure. For our purposes the file is fairly plain. The <strong>REMARK</strong> lines are comments and the <strong>ATOM</strong> lines are each of the 100 argon atoms. The 3 middle columns with numbers are cartesian (x,y,z) coordinates.</li>
+                        <li>Take a look at the <strong>argon_box.psf</strong> file. This file would normally hold important connectivity data (bonds, angles and dihedrals), but ours is fairly boring since our atoms are non-bonding.</li>
+                        <li>Take a look at the <strong>argon_box.prm</strong> file. This is the super important parameter file. The format of this file is fairly simple for LJ argon:
+                            <br><TT>
+                                <br>ATOMS
+                                <br>MASS -1 AR 39.948 ! argon
+                                <br>
+                                <br>NONBONDED
+                                <br>AR 0.0 -0.24979 1.6725 ! argon
+                            </TT></li><br>
+                                <ul>
+                                    <li>The first line says to NAMD, "Hey! The next line has information about the type of atoms used." NAMD then gets ready to read in the next line which tells it all the information about Argon that it needs to know. In this case, its just the molecular weight.</li>
+                                    <li>The third line says to NAMD, "Hey! The next line has information about Argon's nonbonded interactions." For LJ particles this will have "AR" meaning argon, the second column is ignored, the next number is the epsilon parameter (in kcal/mol), the next number is  <em>R</em><sub>min</sub>/2 (in &#8491;).</li>
+                                    <li>Look at your data from the binding curve you made last class. The &#949; and <em>r</em><sub>0</sub> that you fit your curve with correspond to these parameters in the .prm file. Note that in the file, it calls for  <em>R</em><sub>min</sub>/2 instead of just  <em>R</em><sub>min</sub>. </li>
+                                    <li>Adjust the parameters in the .prm file to reflect the values that you came up with. Divide your  <em>r</em><sub>0 </sub>by 2!</li>
+                                </ul></li>
+                        <li>Take a look at the <strong>namd.conf</strong> file. This file contains information about the job we are running in NAMD.
+                            <ul>
+                                <li>The first few lines tell NAMD where it can find the information it needs to run the job.</li>
+                                <li>The <em>set temp</em> line lets you control what the temperature is.</li>
+                                <li>The next few lines control some technical information which we shouldn't have to change. (They control how interactions are computed and lets NAMD know that we would like to run in the isobaric-isothermal ensemble)</li>
+                                <li>The last few lines let NAMD know how long we want to minimize and run.
+                                    <ul>
+                                        <li><em>Minimization</em> is a process that finds a low energy structure that will serve as a good starting point. For large systems with lots of lipids, amino acids, and ions, minimization lets us find a stable starting structure at at 0K.</li>
+                                        <li>The <em>Run</em> is a full MD run at some temperature greater than 0 from which we gather our data.</li>
+                                    </ul></li>
+                            </ul></li>
+                    </ol>
+                    Running NAMD
+                    <ol>
+                        <li>We are ready to go! We'll start with a short equilibration run to get the hang of things. Navigate into the directory <code>lab2/argon_equil/</code></li>
+                        <li>The first run will minimize and equilibrate the argon box. Equilibration will allow our system to settle into a stable configuration, at the correct temperature, before the production run. (The production run is the next step. It is the run from which we will gather data).</li>
+                        <li>Before we submit, change the following parameters in your .conf file:
+                            <ul>
+                                <li>set temp to your assigned temperature</li>
+                                <li>minimize 1000</li>
+                                <li>run 10000</li>
+                            </ul></li>
+                        <li>Submit the job with the submission script, just like you did with your Gaussian jobs: <code>qsub namd.pbs</code>. This should take about a minute.</li>
+                        <li>When the run is done, <code>ls</code> to see all the files you created.
+                            <ul>
+                                <li>The files that contain 'restart' in the name contain the coordinates of the atoms. These files are periodically updated throughout the run. If the job crashes, or if you want to use the ending coordinates for your next run, you will use these files.</li>
+                                <li>The .log file contains lots of information about the run... just like Gaussian</li>
+                                <li>The .dcd file is the file that we will use to read the trajectory into VMD to visualize it and to do some data analysis.</li>
+                            </ul></li>
+                    </ol>
+                    Okay -- great! We will return to argon in a little bit, but let's talk about water and how to do some data analysis first.
+                    
+                </section>
+                
+                <section class="block" id="rdf">
+                    
+                    <h2>
+                        <a href="lab1.html#rdf" class="anchor">
+                            VMD and RDFs
+                        </a>
+                    </h2>
+                    
+                    <p>VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting. It is developed and maintained by the same group of people who developed NAMD! It will allow us to calculate a radial distribution function (RDF). We will talk a little more about what an RDF is tomorrow. Let's simulate a water box to collect some data to analyze.</p>
+                    
+                    On the remote machine:
+                    <ol>
+                        <li>Navigate to the directory <code>lab2/waterbox/</code>. Here you will find an equilibrated box of water ready for production. Submit the job for production: <code>qsub namd.pbs</code></li>
+                        
+                        <li>After the job is done, we need to extract some data and put it on our computer
+                            <ul>
+                                <li>Run the script get_vol.sh to get the volume data from the box: <code>source get_vol.sh</code> This will make a file, vol.txt, that contains all the volume data.</li>
+                                <li>To do our analysis, we need a number of files on our local machine. Transfer the following files to your computer using WinSCP or Cyberduck
+                                    <ul>
+                                        <li>vol.txt</li>
+                                        <li>waterbox.psf</li>
+                                        <li>waterbox.dcd</li>
+                                    </ul></li>
+                            </ul></li>
+                    </ol>
+                    On your local computer:
+                    <ol>
+                        <li>Open VMD
+                        <li>Load your water box into VMD using File &#8594; New Molecule
+                        <ul>
+                            <li>Click Browse and find the waterbox.psf file from your waterbox run.</li>
+                            <li>Load this file</li>
+                            <li>Then click Browse again and find your waterbox.dcd file</li>
+                            <li>When you load this file, you should see a box of water molecules appear in the VMD window. It is a pretty big file; it will take a while to load.</li>
+                            <li>Go to Graphics-Representations and play with the different drawing methods! Find something that looks nice for this simulation.</li>
+                        </ul></li>
+                        <li>We can now make a movie. Go to the Extensions &#8594; Visualization tab and select the movie maker. Set the working directory to a folder on your Desktop. Give your movie a name and click make movie. (it will take a while)</li>
+                        <li>One of the data analysis tools we are going to use next week is a radial distribution function. This can be made using the radial pair distribution function g(r) under Extensions &#8594; Analysis.</li>
+                        <li>For the atomselect type: "type OT" for oxygens and "type HT" for hydrogens. Calculate the O-O, O-H, and H-H RDF's.</li>
+                        <li>Click save data to file and save it somewhere you can find it.</li>
+                        <li>Open the .dat files produced by VMD using a text editor. Copy the data into excel. If it pastes it all into one column click the clipboard and select text import wizard. Use this to import the data as "space delimited". This will put it into two columns</li>
+                        <li>Plot the volume data for the simulation. What is the average density of the water?</li>
+                    </ol>
+                    
+                </section>
+                
+                
+                <section class="block" id="namd2">
+                    
+                    <h2>
+                        <a href="lab1.html#namd2" class="anchor">
+                            NAMD revisited
+                        </a>
+                    </h2>
+                        
+                    Now that we are done with our water calculations, we'll submit our production run and call it a night.
+                    <ol>
+                        <li>Copy a few files from your equilibration directory to your production directory. This will provide the starting coordinates for NAMD to start the production run. This can be done with the <code>cp</code> command
+                            <ul>
+                                <li>argon_box_minequil.pdb</li>
+                                <li>argon_box_minequil.xsc</li>
+                                <li>argon_box.prm</li>
+                            </ul></li>
+                        <li>Submit the job using the pbs script. It will take a few hours to run. We'll analyze the data next Tuesday.</li>
+                    </ol>
+                    
+                </section>
+                
+                <section class="block" id="assignment2">
+                    
+                    <h2>
+                        <a href="lab1.html#assignment2" class="anchor">
+                            Assignment 2: Curve fitting and NAMD
+                        </a>
+                    </h2>
+                    
+                    <strong>Fitting non-linear data</strong>
+                    <ol>
+                        <li>Ethane Torsion.
+                            The data given in the spreadsheet under the Ethane Torsion tab gives energy data calculated using B3LYP/6-311++G(d,p) at various dihedral angles. The peaks and the troughs of the plot represent the staggered and eclipsed conformations of the molecule: 
+                            <br><br><br><center><img src="img/ethane.png" alt="ethane" width="330" height="170" /></center><br><br></li>
+                            <ul>
+                                <li>First, shift the data up so that the 0&#176; torsion is at the zero of energy.</li>
+                                <li>The angles are given in degrees and the energy in Hartree
+                                    <ul>
+                                        <li>Change the angles to be given in radians (Excel defaults to radians with all its trig functions.)</li>
+                                        <li>Change the units of energy into kcal/mol</li>
+                                    </ul></li>
+                                <li>Fit the data to the following function:
+                                    $$E(x)=A\left[ 1-\cos (\omega x + \phi) \right]$$
+                            </ul></li>
+                        <li>N<sub>2</sub> bond length: The data given in the spreadsheet under N<sub>2</sub> Bond gives energy data at various bond lengths. We will fit the data to a <a href="https://en.wikipedia.org/wiki/Morse_potential" target="_blank">Morse potential</a>. Refresh your memory as to what this function looks like. It gives us parameters, <em>D</em><sub>e</sub>, <em>r</em><sub>e</sub>, and <em>k</em> that describe physical properties of the system. Fit this function to the given data. With your knowledge of the function and what the parameters represent, you should have some idea of what values to start your optimization with.
+                            <ul>
+                                <li>Shift the minimum of the well to be at the zero of energy.</li>
+                                <li>Scale your energies to be in kcal/mol instead of Hartree.</li>
+                                <li>What is the equilibrium bond length for N<sub>2</sub> according to your model? How does this compare to experiment?</li>
+                            </ul></li>
+                    </ol>
+                    <strong>Argon Dimer calculations</strong>
+                    <ol>
+                        <li>Make a publication ready plot of your binding curve data (from Gaussian)</li>
+                        <li>Include a Lennard-Jones fit on your plot</li>
+                        <li>Specify the parameters of your fit</li>
+                    </ol>
+                    <strong>NAMD simulation of water</strong>
+                    <ol>
+                        <li>Make publication ready plots of all three RDF's (O-O, O-H, H-H). What are your observations?</li>
+                        <li>Make a publication ready plot of your volume data. What is the average density of the water?</li>
+                        <li>Submit your movie of the water molecules!</li>
+                    </ol>
+                    
+                </section>
+                
+            </section>
+            
+        </section>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Other  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- jquery, jqueryui -->
+        <script src="dist/js/jquery-plus-ui.min.js"></script>
+        
+        <!-- foundation, prettify, jqueryui, twemoji -->
+        <script src="dist/js/bower-libs.min.js"></script>
+
+        <!-- twemojiWrapper, prettyPre -->
+        <script src="dist/js/helpers.js"></script>
+
+        <!-- app -->
+        <script src="dist/js/examples.js"></script>
+        <script src="dist/js/styling.js"></script>
+        <script src="dist/js/app.js"></script>
+  
+    </body>
+
+</html>

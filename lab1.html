@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <title>Adv Int Lab II</title>
+        
+        <meta name="description" content="Computational Chemistry">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        
+        <!-- modernizer -->
+        <script src="dist/js/modernizr.min.js"></script>
+        
+        <!-- fonts -->
+        <link rel="stylesheet" type="text/css" 
+            href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800%7CHandlee">
+            
+        <!-- jquery ui -->
+        <link rel="stylesheet" href="dist/css/jqueryui.min.css" />
+        
+        <!-- app -->
+        <link rel="stylesheet" href="dist/css/app.min.css" />
+        
+        <!-- Math -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+          src="https://example.com/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <a href="index.html#" class="sidebar__toggle">
+            <i class="icon icon--menu"></i>
+            <i class="icon icon--cross"></i>
+        </a>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav class="sidebar">
+        
+            <h2 class="sidebar__title">Chem 425</h2>
+            
+            <ul class="sidebar__nav">
+            
+                <li class="sidebar__item"><a href="index.html">Home</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="index.html#introduction">Introduction</a></li>
+                        <li class="sidebar__item"><a href="index.html#notebook">Notebook</a></li>
+                        <li class="sidebar__item"><a href="index.html#notation">Notation</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab1.html">Laboratory 1</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab1.html#installations">Installations</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#avogadro">Avogadro</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#commandline">The Command Line</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#gaussian">Gaussian</a></li>
+                        <li class="sidebar__item"><a href="lab1.html#assignment1">Assignment 1</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab2.html">Laboratory 2</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab2.html#excel">Fitting Data</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#ar-binding">Argon Binding Curve</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#namd">NAMD</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#rdf">Radial Distribution Functions</a></li>
+                        <li class="sidebar__item"><a href="lab2.html#assignment2">Assignment 2</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab3.html">Laboratory 3</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab3.html#mdanalysis">MD data analysis</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#mo">Molecular Orbitals</a></li>
+                        <li class="sidebar__item"><a href="lab3.html#assignment3">Assignment 3</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="lab4.html">Laboratory 4</a></li>
+                    <ul class="sidebar__nav">
+                        <li class="sidebar__item"><a href="lab4.html#protein">Protein Simulation</a></li>
+                        <li class="sidebar__item"><a href="lab4.html#proteinanalysis">Analysis of Protein Data</a></li>
+                    </ul>
+                    
+                <li class="sidebar__item"><a href="report.html">Lab Report</a></li>
+            </ul>
+            
+        </nav>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section class="content">
+            
+            <section class="content__main">
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block">
+                    
+                    <header class="header">
+                        
+                        <h1 class="header__title">
+                            <a href="lab1.html">Laboratory 1</a>
+                            <small>Avogadro and Gaussian</small>
+                        </h1>
+                        
+                    </header>
+                    
+                </section>
+                
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Laboratory 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <section class="block" id="installations">
+                    
+                    <h2>
+                        <a href="lab1.html#installations" class="anchor">
+                            Installations
+                        </a>
+                    </h2>
+                    
+                    <p>We need a couple of programs installed on your computers before we start!</p>
+                    
+                    <p><strong>Everyone should install these molecular visualization programs:</strong>
+                        <br><a href="https://avogadro.cc" target="_blank">Avogadro</a>
+                        <br><a href="http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD" target="_blank">VMD</a></p>
+                        
+                    <p><strong>Windows users should also install these:</strong>
+                        <br><a href="http://www.putty.org" target="_blank">PuTTY</a>
+                        <br><a href="https://winscp.net" target="_blank">WinSCP</a></p>
+                        
+                    <p><strong>Mac users should also install this:</strong>
+                        <br><a href="https://cyberduck.io" target="_blank">CyberDuck</a></p>
+                        
+                </section>
+                
+                <section class="block" id="avogadro">
+                    
+                    <h2>
+                        <a href="lab1.html#avogadro" class="anchor">
+                            Avogadro
+                        </a>
+                    </h2>
+                    
+                    <p><a href="http://avogadro.org" target="_blank">Avogadro</a> is an advanced molecule editor and visualizer designed for cross-platform use in computational chemistry, molecular modeling, bioinformatics, materials science, and related areas. It offers flexible high quality rendering and a powerful plugin architecture. It is a free, open-source program available for download from their website.</p>
+                    
+                    <p>We will use Avogadro to build molecules, generate input files, and visualize results throughout this module. Let's start with a simple warm-up to get you used to building, minimizing, and measuring chemical structures.</p>
+                    
+                    <strong>Drawing Structures</strong>
+                    <ol>
+                        <li>Open Avogadro. It will open to a clean workspace. Tools are shown on the upper left hand corner of the window:
+                            <ul>
+                                <li><img src="img/AvoDraw.png" /> Draw Tool</li>
+                                <li><img src="img/AvoNavigate.png" /> Navigate Tool</li>
+                                <li><img src="img/AvoBondcentric.png" /> Bond Centric Manipulate Tool</li>
+                                <li><img src="img/AvoManipulate.png" /> Manipulate Tool</li>
+                                <li><img src="img/AvoSelect.png" /> Selection Tool</li>
+                                <li><img src="img/AvoAutorotate.png" /> AutoRotate Tool</li>
+                                <li><img src="img/AvoAutoopttool.png" /> AutoOptimization Tool</li>
+                                <li><img src="img/AvoMeasure.png" /> Measure Tool</li>
+                                <li><img src="img/AvoAlign.png" /> Align Tool</li>
+                            </ul>
+                            <br>To the right of the list of tools are two buttons: Tool Settings and Display Settings. To begin, select the  <img src="img/AvoDraw.png" /> Draw Tool and make sure Tool Settings is selected.</li>
+                        <li>Tool Settings provides a window on the left for you to modify settings of the tool you are currently using. In this window, set the Element field to Carbon, Bond Order to single, and <em>uncheck</em> the Adjust Hydrogens button.</li>
+                        <li>Click in the main window to place a carbon atom. Drag from one atom to another location to make a carbon-carbon bond. Sketch out the skeleton of the biphenyl structure:
+                            <br><center><img src="img/biphenyl1.jpg" alt="biphenyl" width="400"></center></li>
+                        <li>In your Tool Settings window, select Double for your bond order and re-enable Adjust Hydrogens.</li>
+                        <li>Click alternating bonds to convert the system to two conjugated rings:
+                            <br><center><img src="img/biphenyl3.jpg" alt="biphenyl" width="400"></center></li>
+                        <li>This is a very uncomfortable geometry for biphenyl, so we want to allow the molecule to relax into a lower energy conformation. In the main menu bar, Go to
+                            <br>Extensions &#8594; Molecular Mechanics &#8594; Setup Force Field
+                            <br>Pick the MMFF94 Force Field, 500 steps, the Steepest Descent Algorithm, and a convergence criteria of 10e-2.  Click OK.</li>
+                        <li>Now go to Extensions &#8594; Optimize Geometry. You should get a structure that looks like this:
+                            <br><center><img src="img/biphenyl4.jpg" alt="biphenyl" width="400"></center></li>
+                        <li>The <img src="img/AvoMeasure.png" /> Measure Tool allows you to measure distances, angles, or dihedral angles. The measurements show up in the lower left corner of the main window.
+                            <ul>
+                                <li>Click on any two atoms to measure a distance.</li>
+                                <li>Click on any three atoms to measure the angle between them.</li>
+                                <li>Click on four atoms to measure the dihedral angle between them.</li>
+                                <li>Right click to clear the measurement and the list of selected atoms.</li>
+                            </ul></li>
+                        <li>Measure the dihedral angle between the two phenyl rings.</li>
+                        <li>The <img src="img/AvoBondcentric.png" /> Bond Centric Manipulate Tool provides a "chemically-oriented" way to change bond lengths, angles, and dihedrals.</li>
+                            <ul>
+                                  <li>Click on the bond between the two phenyl rings. A rectangle will be drawn with the bond at the center. You can rotate this plane about the bond by clicking on the bond and dragging.</li>
+                                  <li>Right click on one of the atoms in the selected bond and drag to change the bond length. The current bond length is listed in the bottom left corner.</li>
+                                  <li>Left click on one of the atoms in the selected bond and drag to change the bond angle. The atom you click on will move in the highlighted plane, with the other atoms as the center of rotation. The appropriate angles will update interactively.</li>
+                                  <li>Click on an atom <em>neighboring the bond </em>and drag to change the dihedral angle. Adjust the phenyl-phenyl ring dihedral until it is near 90º.</li>
+                            </ul>
+                        <li>Re-optimize the geometry, this time using the <img src="img/AvoAutoopttool.png" /> AutoOptimization Tool, MMFF94, and Conjugate Gradients. What is the phenyl-phenyl dihedral angle now? What does your chemical intuition say about the correct phenyl-phenyl angle?</li>
+                    </ol>
+                    
+                    <strong>Building a Peptide</strong>
+                    <ol>
+                        <li>Start with a clean workspace.</li>
+                        <li>On the main menu, go to Build &#8594; Insert &#8594; Peptide</li>
+                        <li>We're going to create a peptide analogue that contains a single amino acid residue, alanine (Ala), flanked by two peptide bonds and capped at each end with methyl groups. To do this, insert the peptide sequence Gly-Ala-Gly. Close the "Insert Peptide" window</li>
+                        <li>The main window will now contain the peptide, but it will have all of the atoms selected (surrounded by a blue halo). You may have to use the <img src="img/AvoNavigate.png" /> Navigate Tool to adjust your view. Left click-and-drag will rotate the molecule about its center; right click-and-drag will move absolute position of the atom in the window. Use the scroll wheel on your mouse to zoom in and out. To unselect atoms (get rid of the blue halo) use the <img src="img/AvoSelect.png" /> Selection Tool and right click in the empty space around the molecule.</li>
+                        <li>We need to remove a few atoms from the peptide to form the capped alanine structure:
+                            <br>This can be accomplished in one of two ways:
+                            <ul>
+                                  <li>Use the <img src="img/AvoSelect.png" /> Selection Tool to pick a few atoms and remove them using the "Delete" key. You can select more than one atom at a time by holding the "&#8984;Command" key.</li>
+                                  <li>Use the  <img src="img/AvoDraw.png" /> Draw Tool and right-click on any (unselected) atom and it will disappear. You will need to make sure "Adjust Hydrogens" box is selected or add in the additional hydrogens to correct the structure as you go along.</li>
+                            </ul></li>
+                        <li>I've labeled each of our peptide atoms with numbers below. We will use the methyl group side chain of the Ala residue as our visual anchor point (atoms 10, 11, 12, and 13). Conformations will generally be oriented so that the Ala methyl group is at the top and slightly rotated forward.
+                            Our "capped alanine" structure is an alanine residue (chain atoms 4, 5, and 6) capped with a residue preceding it (chain atoms 1 and 2) and a residue succeeding it (chain atoms 14 and 15). Atoms of the residue preceding it are denoted "-1"; atoms of the residue succeeding it are denoted "+1". Here is a list of the atoms that we are concerned with:
+                            <ul>
+                                <li>Atom 1 - C<sub>&#945;-1</sub></li>
+                                <li>Atom 2 - C<sub>O-1</sub></li>
+                                <li>Atom 4 - N<sub>H</sub></li>
+                                <li>Atom 5 - C<sub>&#945;</sub></li>
+                                <li>Atom 6 - C<sub>O</sub></li>
+                                <li>Atom 14 - N<sub>H+1</sub></li>
+                                <li>Atom 15 - C<sub>&#945;+1</sub></li>
+                            </ul>
+                        </li>
+                        <li>When describing the structure of a peptide chain, we typically look at the &#966; and &#968; angles. The &#966; angle is the torsion angle specified by the spatial coordinates of C<sub>O-1</sub>, N<sub>H</sub>, C<sub>&#945;</sub>, and C<sub>O</sub>. In this conformation, &#966; = 180º</li>
+                        <li>The &#968; angle is the torsion angle specified by the spatial coordinates of N<sub>H</sub>, C<sub>&#945;</sub>, C<sub>O</sub>, and N<sub>H+1</sub>. In this conformation &#968; = 180&#176;</li>
+                    </ol>
+                    
+                    <strong>Conformational Searches</strong>
+                    <ol>
+                        <li>One way to optimize the structure of the peptide (i.e. find the lowest energy conformation) is to do a conformational search. To do this, first select
+                            <br>Extensions &#8594; Molecular Mechanics &#8594; Conformer Search from the main menu.</li>
+                        <li>Perform a systematic rotor search. There should be 4 rotatable bonds. A systematic rotor search will sample 575 different conformations. When the search is complete measure the energy using
+                            <br>Extensions &#8594; Molecular Mechanics &#8594; Calculate Energy
+                            <br>What energy did you get? Measure your &#966; and &#968; angles.</li>
+                        <li>Now, perform a steepest descent minimization following the conformational search. Do you get a lower energy? What are your &#966; and &#968; angles?</li>
+                    </ol>
+                    
+                    <strong>Energy related to torsional rotation</strong>
+                    <ol>
+                        <li>Using the <img src="img/AvoMeasure.png" /> Measure Tool and <img src="img/AvoBondcentric.png" /> Bond Centric Manipulate Tool, change both the &#966; and &#968; angles to 0º. What is the energy of this conformation? Why is the energy so high?</li>
+                        <li>Turn on the <img src="img/AvoAutoopttool.png" /> AutoOptimization Tool and drag around the atoms until you find a low energy conformation (around -70 kcal/mol or so). What are the &#966; and &#968; angles in this conformation?</li>
+                    </ol>
+                    
+                </section>
+                
+                <section class="block" id="commandline">
+                    
+                    <h2>
+                        <a href="lab1.html#commandline" class="anchor">
+                            The Command Line Interface
+                        </a>
+                    </h2>
+                    
+                    <p>The command-line interface (CLI) is a tool into which you can type text commands to perform specific tasks. This is in contrast to a graphical user interface (GUI): pointing and clicking on menus and buttons on the desktop or within applications. Using a CLI you can directly control the computer by typing commands, allowing many tasks to be performed quickly and more efficiently than using a GUI.</p>
+                    
+                    <h3>The Basics</h3>
+                        <ol>
+                            <li>First, we will log on to a few remote computers that we've set up for this lab. We will give each of you a unique address for you to use.
+                                <ul>
+                                    <li>Windows users - Open PuTTY. (We downloaded and installed it last class). Open a new connection and use the address and password we give you.</li>
+                                    <li>Mac users - Open up the Terminal application. It can be found on your Mac under Applications &#8594; Utilities &#8594; Terminal. To log on to the machine we will use <code>ssh</code> and the address. You will probably get a message: The authenticity of host can't be established. Are you sure you want to continue connecting? Answer yes and press return.</li>
+                                </ul></li>
+                            <li>The user interface that accepts your typed commands and displays data on the screen is called a shell. Right now the shell is waiting for you to give it a command. Once you enter a command it will respond. Try typing
+                                <br><br><pre>ls</pre>
+                                then hit enter. It will display a list of the contents of the directory (folder) that you are in: all the files and folders. What you've done is analogous to opening up a folder by double clicking on the icon to see what is inside. We call each folder a directory.</li>
+                            <li>We can change directories using the command
+                                <br><br><pre>cd [name of your directory]</pre>
+                                Switch directories then list the contents of your new directory. For example,
+                                <br><br><pre>
+                                    cd lab1/
+                                    ls
+                                </pre>
+                                When you cd, you can auto-complete a directory name by typing the first few letters then pressing tab. Your directories might be listed in a different color than your files. This helps you to easily identify which is a file and which is a directory. Try cd-ing into a file.
+                                    <br><br><pre>cd textfile.txt</pre>
+                                It doesn't work! It gives you an error "Not a directory".
+                                To go "up" a directory (into the parent directory) we use
+                                <br><br><pre>cd ../</pre></li>
+                            <li>To create a directory we use the command <code>mkdir</code> followed by the name of your directory
+                                Try making a new directory. Name it anything you want.
+                                <br><br><pre>mkdir Susan</pre>
+                                We can remove this directory using the command
+                                <br><br><pre>rmdir Susan/</pre>
+                                Note: the <code>rmdir</code> command will only remove an empty folder. If there is anything inside of the folder we need to add a flag, <code>-rf</code>. Flags are preceded by a hyphen and tell the computer to complete the command using certain options.
+                                <br><br><pre>rmdir -rf Susan/</pre>
+                                Make a new directory and navigate into it.</li>
+                            <li>You can create a file using the command <code>touch</code> followed by a filename
+                                and remove it with the command <code>rm [filename]</code>
+                                Try making and removing a file called "awesome.txt"
+                                <br><br><pre>touch awesome.txt</pre>
+                                Don't use any spaces in your file names. It is important to note that when we <code>rm</code></span> a file or a directory, it is gone forever... there is no "Trash bin" where we can retrieve it.</li>
+                            <li>To edit text files we will use the vim editor. It is a very powerful tool; we will only use the very simplest functions it has to offer. You can create a file and open it in vim using just one command:
+                                <code>vi cool.txt</code>
+                                To add text, we first have to enter the "insert mode" by pressing <code>i</code>. Now you can type just like any other text editor. Type two sentences on consecutive lines in the file.
+                                <br><br><pre>Betsy had blueberry pie for dessert.<br>Dominic had apple cobbler.</pre>
+                                To exit "insert mode", press "esc". Vim will allow us to navigate through large files, copy, paste, and insert text. More on this later. To write your file (save it) and quit vim type:
+                                <br><br><pre>:wq</pre> and press enter. Both the <code>w</code> and the <code>q</code> should be lowercase.</li>
+                            <li>There are many occasions where we will want to look at long files. Instead of opening them up in a text editor on our computer, we can use the command
+                                <code>less</code> followed by the file name
+                                This will open up the file and allow us to view a portion of it. We can search for strings and navigate the file more easily than if we had opened the whole file using a regular text editor. We will also come back to this a little bit later.</li>
+                            <li>We can copy and paste files using the command <code>cp [original file] [destination]</code>
+                                The destination could either be a new name in the same directory or it might be in an (already existing) directory. For example, if I start in my directory Susan:
+                                <code>cp cool.txt ../cool.txt</code>
+                                will paste the file <code>cool.txt</code> into <code>lab1/</code>. Remember that <code>../</code> goes to the parent directory.
+                                I can also copy the file to a new file in the same directory (with a new name):
+                                <code>cp cool.txt boring.txt</code>
+                                It is important to note that if you <code>cp</code> a file into another directory, and that directory already has a file with the same name, the file will be overwritten. (There is no warning message!)</li>
+                            <li>To search for a "string" (a sequence of characters) in a file we use the command
+                                <code>grep [string] [file I am searching]</code>
+                                For example
+                                <br><br><pre>grep Betsy cool.txt</pre>
+                                The result will be each line in which that string occurs. Strings are case sensitive. Again... more on this command later.</li>
+                        </ol>
+                        Okay... that's enough for now! There will be more commands to come as we progress.
+                </section>
+                
+                <section class="block" id="gaussian">
+                    
+                    <h2>
+                        <a href="lab1.html#gaussian" class="anchor">
+                            Gaussian
+                        </a>
+                    </h2>
+                    
+                    <p><a href="http://gaussian.com" target="_blank" rel="noopener noreferrer">Gaussian</a> is a computer code (based on the use of gaussian basis functions) which performs molecular electronic structure calculations. It was first developed in the late 1960's-early 1970's at Carnegie-Mellon University under <a href="http://www.nobelprize.org/nobel_prizes/chemistry/laureates/1998/pople-bio.html" target="_blank">John Pople</a>.</p>
+                    
+                    <p>To begin, we are going to use Gaussian to optimize the structure of alanine. I've made an input file for you to start with. After that, we will look at some properties of water (geometry, dipole moment, and vibrational frequencies) to compare to experimental values. We will calculate each of these properties with a variety of basis sets and methods. Each combination of methods and basis sets will yield slightly different results. Let's first take a look at how to submit a calculation and then we'll evaluate how well each basis set/method combination does in its prediction of the experimental values.</p>
+                    
+                    <strong>Basic Gaussian Job</strong>
+                    <ol>
+                        <li>Navigate to the alanine directory
+                            <pre>cd lab1/alanine/</pre></li>
+                        <li>List the contents. You will see two files. One is the input (ala.inp) and the other is the submission script (g16.pbs)</li>
+                        <li>Take a look inside the input file
+                            <br><br><pre>less ala.inp</pre>
+                            The information you see tells Gaussian the parameters of the job, what computer resources to use, and the coordinates of the molecule. We will take a closer look at this later. Press <code>q</code> to quit and return to the command prompt</li>
+                        <li>Now look at the submission script
+                            <br><br><pre>less g16.pbs</pre>
+                            This file will give the computer instructions on what resources the job will need and where to put the files that are generated throughout the calculation.</li>
+                        <li>To submit the job to the queue, all we need to do is enter the command
+                            <br><br><pre>qsub g16.pbs</pre></li>
+                        <li>You can check the status of the job by entering the command
+                            <br><br><pre>qstat</pre>
+                            </span>When the job is complete it will disappear from the queue</li>
+                        <li>Open <code>ala.log</code> with the <code>less</code> command. You will see that a Gaussian output file has <em>a lot</em> of information.</li>
+                        <li>There are a few different ways to navigate through a file using less. The most simple is just to use the up and down arrows. If we want to skip to the bottom or the top, we can type G or g, respectively. Go to the very bottom of the file.</li>
+                        <li>The first thing you should check is to see that the job terminated without error. If the job was successful, the last line of the file will say something like:
+                            <br><TT>Normal termination of Gaussian 09 at Tue Jan 31 14:49:16 2017.</TT><br>
+                            <ul>
+                                <li>Look a few lines above the "normal termination" line... There should be some random quotation... Every successful job spits out a different one. Just a fun little tidbit.</li>
+                                <li>ALL THINGS ARE POSSIBLE EXCEPT SKIING THROUGH A REVOLVING DOOR.</li>
+                                <li>Return to the command prompt by pressing <code>q</code></li>
+                            </ul></li>
+                        <li>Now we want to look at the results on our local machine. Using WinSCP or CyberDuck, copy the file to your Desktop</li>
+                        <li>Open up the file using Avogadro. Looks like a good looking Alanine residue to me!</li>
+                        <li>Measure the &#966; and &#968; dihedral angles as you did last class. Recall that &#966; is the C-N-C-C angle and &#968; is N-C-C-N. Use these new measurements for your assignment.</li>
+                    </ol>
+                    <strong>Your turn.... Generating the Input File</strong>
+                    <ol>
+                        <li>Using those awesome Avogadro skills, build a single water molecule. 
+                            <br><br><center><img src="img/water.jpg" width="350" height="272" /></center><br>
+                        <li>Avogadro has some neat built-in extensions, one of which makes a Gaussian input file. Under the main menu, go to Extensions &#8594; Gaussian. There are several options.
+                            <ul>
+                                <li>Choose any title you like. Pick something descriptive... preferably with the method and basis set you are using. (like "h2o b3lyp sto-3g")</li>
+                                <li>Calculation: Frequencies (this will do a geometry optimization followed by a frequency analysis)</li>
+                                <li>Processors: 1</li>
+                                <li>Theory: B3LYP  and  Basis: STO-3G</li>
+                                <li>Charge: 0</li>
+                                <li>Multiplicity: 1</li>
+                                <li>Output: Standard</li>
+                                <li>Format: Cartesian</li>
+                            </ul></li>
+                        <li>Click generate and save the file to your directory. We typically use the extension ".com" or ".inp" on our input file name. (e.g.  water.inp)</li>
+                        <li>The file you generated has just the bare bones of an input. Every Gaussian input has several sections:
+                            <ul>
+                                <li>Link 0 commands: Each of these lines begins with <TT>%</TT>. They are optional. We don't have any of these in this first example.</li>
+                                <li>Route section: Each of these lines begins with <TT>#</TT>. They follow immediately after the Link 0 commands (no blank space in between). They specify the desired calculation type and model chemistry. There are also keywords that appear on this line that give further specification as to how to complete the requested job.</li>
+                                <li>BLANK LINE</li>
+                                <li>Title section: This can be anything. You should try to be descriptive with your title.</li>
+                                <li>BLANK LINE</li>
+                                <li>Molecule Specification: defines the molecular system to be studied. The first line in this section consists of two numbers, the charge and the multiplicity. This is followed by the atomic coordinates of all atoms, either in Cartesian form or as a z-matrix.</li>
+                                <li>BLANK LINE</li>
+                                <li>Optional additional sections: Some jobs require additional input. That additional information goes in this section.</li>
+                                <li>BLANK LINE (<strong>every input file must end with a blank line</strong>!)</li>
+                            </ul>
+                            **Gaussian is very particular about where blank lines appear in the input file. For this reason we have to be careful when we are modifying the inputs! The job will crash if the input is not in the right form.</li>
+                        <li>Look at the route section of your input file. It should look like this:
+                            <br><TT>#n B3LYP/STO-3G Opt Freq</TT>
+                            <br>This is telling Gaussian to first do a geometry optimization followed by a harmonic frequency analysis, using the method B3LYP and the basis set STO-3G</li>
+                            <li>To compute the dipole, we need to add a keyword to the route section of our input file. After "Freq", add the keyword "Density=Current":
+                                <br><TT>#n B3LYP/STO-3G Opt Freq Density=Current</TT></li>
+                        <li>Click Generate and save the file to your Desktop with the name "h2o.inp" Go look at it on your Desktop. Avogadro probably added the extension ".com". Remove that. Look at the file in a text editor. If the first line says
+                            <br><TT>%NProcShared=2</TT> remove it.
+                            <br>The very first line should say <br><TT>#n B3LYP/STO-3G Opt Freq Density=Current</TT></li>
+                    </ol>
+                    <strong>Submitting a Job</strong>
+                    <ol>
+                        <li>To submit the job, we first have to get the input file in the right directory on the computer. Copy h2o.inp from your Desktop to the directory  <span style="color: #438e8e;"><code>~/lab1/water/opt/</code></span> using WinSCP or CyberDuck</li>
+                        <li>After you have an input file, running the job is easy (...provided the input file is correct!) Return to the command line and navigate to the directory that you put your h2o.inp file into.</li>
+                        <li>Just as before, use the command <code>qsub g16.pbs</code> to submit your job to the queue.</li>
+                    </ol>
+                    <strong>Analyzing the Results</strong>
+                    <ol>
+                        <li>Back to our local machine: copy the file h2o.log onto your Desktop using WinSCP or CyberDuck</li>
+                        <li>Let's take a look at the results using Avogadro. Go to the directory that contains your .log file. Right-click on the file and then open with Avogadro. Avogadro should load your molecule. You will see a panel on the right that we didn't see before.
+                            <br><br><center><img src="img/avogadro_window.png" width="550" height="343" /></center><br>
+                            This panel contains the vibrational analysis of our molecule. Click on one of the vibrational modes and press Start Animation below. You will see the vibrational mode corresponding to that frequency!
+                            <br><br><center><img src="img/water.gif" width="450" height="279" /></center><br>
+                        <li>If you stop the animation, you can use the Measure Tool on the Avogadro tool bar to measure the bond lengths and angle just as we did before.</li>
+                        <li>To find the calculated dipole moment, let's return to the raw output. Using <code>grep</code> (in the command line) we can find the string "Dipole moment" in the .log file. Be careful about your uppercase/lowercase letters. <code>grep</code> is case sensitive. When you enter
+                            <br><br><pre>grep "Dipole moment" h2o.log</pre>
+                            You should get an output that looks something like this:
+                            <br><TT>Dipole moment (field-independent basis, Debye):
+                            <br>Dipole moment (field-independent basis, Debye):
+                            <br>Dipole moment (field-independent basis, Debye):</TT>
+                            <br>That's not especially useful. What we want is the line immediately following this line.</li>
+                        <li>To get the calculated values, we add a flag -A then the number of lines we want following the string we <code>grep</code>-ed
+                            <br><br><pre>grep -A 1 "Dipole moment" water.log</pre>
+                            This command results in a more useful output:
+                            <TT>Dipole moment (field-independent basis, Debye):
+                            <br>X= 0.0000 Y= -1.6308 Z= 0.0000 Tot= 1.6308
+                            <br>--
+                            <br>Dipole moment (field-independent basis, Debye):
+                            <br>X= 0.0000 Y= -1.5935 Z= 0.0000 Tot= 1.5935
+                            <br>--
+                            <br>Dipole moment (field-independent basis, Debye):
+                            <br>X= 0.0000 Y= -1.5935 Z= 0.0000 Tot= 1.5935</TT></li>
+                        <li>When we set up the calculation, we asked Gaussian first to optimize the structure, then to find the vibrational frequencies. Gaussian took three "steps" before it found the optimized structure; it calculated the dipole moment for each step. Since we only care about the optimal structure, we take the last of these values. Gaussian gives the vector in the x, y, and z directions as well as the total magnitude of the vector, 1.5935. We are interested in the total magnitude.</li>
+                    </ol>
+                    Now you know how to set up and run a Gaussian calculation! We've only calculated a few simple properties, but Gaussian is capable of calculating much more. Every other calculation just requires a little modification to the input that you've already learned how to create. You'll need to do a few more of these vibrational calculations today to complete Assignment 1.
+                    
+                    Let me know when you get here... I'll give you some more files.
+                    
+                </section>
+                
+                <section class="block" id="assignment1">
+                    
+                    <h2>
+                        <a href="lab1.html#assignment1" class="anchor">
+                            Assignment 1: Avogadro and Gaussian
+                        </a>
+                    </h2>
+                    
+                    <strong>Biphenyl</strong>
+                    <ol>
+                        <li>What is the optimum phenyl-phenyl dihedral angle in biphenyl?</li>
+                        <li>What is the experimental value?</li>
+                        <li>How was the experimental value derived?</li>
+                        <li>Why might yours differ?</li>
+                        <li>Why did you get different results when you started the calculation from the planar biphenyl vs. 90&#176; biphenyl?</li>
+                        <li>Which optimized structure is correct?</li>
+                    </ol>
+                    <strong>Capped Alanine</strong>
+                    <ol>
+                        <li>What chemical interactions are stabilizing the low energy structure for the capped alanine?</li>
+                        <li>What is a Ramachandran plot? Find one for alanine.</li>
+                        <li>Where do your values of &#966; and &#968; lie on the Ramachandran plot? What does this correspond to?</li>
+                    </ol>
+                    <strong>Water</strong>
+                    <ol>
+                        <li>Using the following 4 methods and 4 basis sets, optimize the structure of water and calculate some experimental properties: bond length, HOH angle, dipole moment, and the vibrational frequencies.
+                            <ul>
+                                <li>Methods (with the 6-31++G** basis set)
+                                    <ul>
+                                        <li>HF</li>
+                                        <li>BLYP</li>
+                                        <li>B3LYP</li>
+                                        <li>MP2</li>
+                                    </ul></li>
+                                <li>Basis sets (with the B3LYP method)
+                                    <ul>
+                                        <li>STO-3G</li>
+                                        <li>6-31G</li>
+                                        <li>6-31++G**</li>
+                                        <li>aug-cc-pVTZ</li>
+                                    </ul></li>
+                            </ul></li>
+                        <li>Which method and basis set combination offers the best agreement with experiment for each calculated property? Make a table with the calculated values and the relative error between calculated and experimental value. The time it took to do the optimization and the frequency calculation can both be found by <span style="color: #438e8e;"><code>grep</code></span>-ing the word "Elapsed" in your .log file. Include this information in your table.</li>
+                        <li>Hand in the table as an excel spreadsheet</li>
+                    </ol>
+                    <strong>For your final lab report: Build a pentapeptide</strong>
+                    <ol>
+                        <li>Met-enkephalin is an opioid peptide neurotransmitter.  Many local minima exist for this molecule, so it is a challenge to reach the global minimum. First, build the peptide. Its sequence is Tyr-Gly-Gly-Phe-Met. When you insert the peptide from the build menu, you will see two drop-down fields, N terminus and C terminus. Set these to NH<sub>3</sub><sup>+</sup> and CO<sub>2</sub><sup>-</sup>, respectively.</li>
+                        <li>Measure the energy of the structure when right after you insert it. If you insert everything as a straight chain, you should get an energy of around 648 kJ/mol.</li>
+                        <li>What is the lowest energy conformation you can find? I got my structure down to about -16.2 kJ/mol. Use the MMFF94 force field to evaluate your energy. Use any of the skills you learned in the Avogadro tutorial as well as any other resources (internet databases or scientific literature) to find the lowest energy structure. (To get <em>full</em> credit on this part you need to find a structure having an energy less than 0 kJ/mol)</li>
+                        <li>Can you find multiple unique stable structures? Describe the differences between local minima and global minima. Which of the stable structures are local minima and which is the lowest energy structure that you can find (potentially the global minimum).</li>
+                        <li>Speculate on the chemical interactions stabilizing the low energy structure(s).</li>
+                        <li>SAVE YOUR .xyz file.</li>
+                        <li>Return to your alanine optimization that we started the Gaussian tutorial with. Modify the input file to calculate the vibrational modes after a geometry optimization. Be careful with your choice of basis set and method! Start small to see how long it will take.</li>
+                        <li>To do any vibrational calculation, you have to optimize it with the same method and basis set that you are using for the freq calculation. For this reason, your keywords should be Opt Freq. (Though you won't need Density=current)</li>
+                        <li>Look at the molecule in Avogadro. What are the &#966; and &#968; angles? Include this and your Ramachandran plot in your report. How many vibrational modes should exist for this molecule? Is that how many there are?</li>
+                        <li>Comment on the types of vibrations you see. Correlate the character of the vibrational mode (e.g. the character of a particular mode looks to be mostly composed of C-H stretch) to the vibrational frequency assigned to it. Are they reasonable?</li>
+                    </ol>
+                    
+                    <strong>Important files to turn in</strong>:
+                    <ol>
+                        <li>Lowest energy Met-enkephalin .xyz file</li>
+                        <li>Alanine .log file from opt freq calculation</li>
+                        <li>Table of water data as an Excel spreadsheet</li>
+                    </ol>
+                    
+                </section>
+                
+            </section>
+            
+        </section>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Other  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- jquery, jqueryui -->
+        <script src="dist/js/jquery-plus-ui.min.js"></script>
+        
+        <!-- foundation, prettify, jqueryui, twemoji -->
+        <script src="dist/js/bower-libs.min.js"></script>
+
+        <!-- twemojiWrapper, prettyPre -->
+        <script src="dist/js/helpers.js"></script>
+
+        <!-- app -->
+        <script src="dist/js/examples.js"></script>
+        <script src="dist/js/styling.js"></script>
+        <script src="dist/js/app.js"></script>
+  
+    </body>
+
+</html>
