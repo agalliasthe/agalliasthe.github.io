@@ -109,7 +109,7 @@
                         
                         <h1 class="header__title">
                             <a href="lab3.html">Laboratory 3</a>
-                            <small>Molecular Dynamics Analysis and Molecular Orbitals</small>
+                            <small>Molecular Dynamics Analysis and Small Peptides</small>
                         </h1>
                         
                     </header>
@@ -121,33 +121,21 @@
                     
                     <h2>
                         <a href="lab1.html#mdanalysis" class="anchor">
-                            Argon, Water, and TRP-Cage Analysis
+                            Argon and TRP-Cage Analysis
                         </a>
                     </h2>
                     
-                    <p>Today we will analyze all those long trajectories that we set up to run last week. We had a few hiccups, so Shiv reran some of the data so that we’d have something nice to look at this week. We will combine and distribute all the class data so that everyone has a wide range of temperatures to look at. We will also simulate another water box and a small solvated peptide.</p>
+                    <p>Today we will analyze all those long trajectories that we set up to run last week. We will also simulate another water box and a small solvated peptide.</p>
                     
                     <strong>Radial Distribution Function of Argon</strong>
                     <ol>
-                        <li>Each of the remote computers have a folder called <code>lab2_shiv/</code>. Transfer this folder to your local computer with WinSCP or CyberDuck. This folder contains data from 2 runs at different temperatures. Each group has unique data.</li>
+                        <li>Transfer the data from the long Argon runs onto your local computer. Each group should have unique data at different temperatures.</li>
                         <li>Load the trajectories into VMD as we have done before.</li>
                         <li>Calculate the RDF. Make sure you set the <TT>max R</TT> setting to <TT>20.0</TT></li>
                         <li>Save the rdf to a file as <code>ARGON___.dat</code> replacing the underscores with the simulation temperature. The temperature is found in the namd.conf file.</li>
-                        <li>Compare the RDFs. What are your observations? Send the .dat files to Shiv (upadhya1@duq.edu)</li>
+                        <li>Find some friends and compare the RDFs. What are your observations? Send the .dat files to Riley</li>
                     </ol>
-                    
-                    <strong>Heat Capacity of Water</strong>
-                    
-                    <p>We are going to calculate the heat capacity of water. To calculate <em>C<sub>p</sub></em> we need to run a constant pressure simulation. To calculate <em>C<sub>v</sub></em> we need to run a constant volume simulation. These folders have been set up and are called <code>waterboxNPT</code> and <code>waterboxNVT</code>, respectively.</p> 
-                    <ol>
-                        <li>Navigate into each of these directories and submit the jobs.</li>
-                        <li>Once the simulations have been completed, use the .sh scripts provided to extract total energy and total potential energy. These will allow you to calculate the <em>C<sub>p</sub></em> and <em>C<sub>v</sub></em>:</li>
-                            <br> $$C_v=\frac{\langle E^2 \rangle-\langle E \rangle^2}{k_BT^2}$$
-                            <br> $$C_p=\frac{\langle U^2 \rangle-\langle U \rangle^2}{k_BT^2}$$
-                            <br> where <em>E</em> is the total energy and <em>U</em> is the potential energy.</li>
-                        <li> What is the relationship between <em>C<sub>p</sub></em> and <em>C<sub>v</sub></em>? (This is google-able.) Do these results agree with this relationship?</li>
-                    </ol>
-                    
+                                       
                     <strong>Radial Distribution Functions and Root-Mean-Square Deviation of Solvated TRP-Cage</strong>
                     <p>We are also going to simulate a small protein called the TRP-Cage. The necessary files have been provided in the directory <code>TRP-Cage</code></p>
                     <ol>
@@ -224,7 +212,7 @@
                     </ol>
                     
                 </section>
-                
+                <!--
                 <section class="block" id="assignment3">
                     
                     <h2>
@@ -266,7 +254,7 @@
                         </li>
                     </ol>
                     
-            </section>
+            </section> -->
             
         </section>
         
