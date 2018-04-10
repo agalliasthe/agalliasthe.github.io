@@ -149,7 +149,172 @@
                         <li>Now we get to see the real power of RDFs. Calculate 2 RDFs: the first between <code>ions</code> and <code>type OT</code>, and the second between <code>backbone</code> and <code>type OT</code>. The first is the structure of water around the ions and the second around the protein.</li>
                     </ol>
                 </section>
+		
+		<section class="block" id="protein">
+                    
+                    <h2>
+                        <a href="lab4.html#protein" class="anchor">
+                            Simulation of a protein
+                        </a>
+                    </h2>
+                    
+                    <br><img src="img/zipper.png" align=”right” hspace=”50” vspace=”50” alt="excel" width="172" height="278" />
+                    
+                    <p>Your turn! So far we’ve given you most things that you need to run a simulation. Now that you are experts in submitting jobs and analyzing the output, let’s take some time to see what goes into making these input files.</p>
+                    <strong>Downloading the PDB</strong>
+                    <ol>
+                        <li>First, go to <a href="http://www.rcsb.org/" >The Protein Data Bank</a>. The Protein Data Bank (PDB) archive is the single worldwide repository of information about the 3D structures of large biological molecules, including proteins and nucleic acids. And all free!</li>
+                        <li>We are going to simulate a tryptophan zipper. It has a beta hairpin structure. Search "beta hairpin tryptophan zipper". A few results come up. Scroll down until you find the one identified as <code>1LE0</code></li>
+                        <li>Click Download files &#8594; PDB Format. This will save a .pdb file to your computer. It has several configurations for this protein contained inside.</li>
+                        <li>Go ahead and put it somewhere convenient on your local computer.</li>
+                        <li>Open up the file in VMD to view it</li>
+                    </ol>
+                    <strong>Saving the Protein for Simulation</strong>
+                    <ol>
+                        <li>Open the Tk Console under the Extensions menu</li>
+                        <li>In TkConsole, change directory to wherever you put your .pdb file.</li>
+                        <li>In TkConsole, set a variable <code>le0</code> to store only the first peptide conformation:
+                            <br><br><pre>set le0 [atomselect top protein frame 0]</pre>
+                            Instead of everyone choosing frame 0, let's have a variety of starting points. choose any configuration between 0 and 19.</li>
+                        <li>Write a new pdb file saving only the protein (no NH2 will be saved) of the first frame
+                            <br><br><pre>$le0 writepdb le0.pdb</pre></li>
+                        <li>Load your saved le0.pdb structure into VMD using the File &#8594; New Molecule menu.</li>
+                        <li>Right-click on 1le0.pdb to remove it from the list of loaded molecules</li>
+                    </ol>
+                    <strong>Generate a psf file</strong>
+                    <ol>
+                        <li>Recall that one of the files that NAMD requires is a protein structure file (psf). VMD will generate one of these for us.</li>
+                        <li>Open the automatic psf builder under Extensions &#8594; Modeling &#8594; Automatic PSF Builder
+                            <ul>
+                                <li>Change the basename to anything you like. <code>le0_autopsf</code> might be a good choice</li>
+                                <li>Leave the default topology files</li>
+                                <li>Click Load input files</li>
+                                <li>Click Guess and split</li>
+                                <li>Click create chains. (A message may pop up... this is fine.)</li>
+                                <li>Click OK</li>
+                            </ul></li>
+                        <li>VMD should automatically load your new file. If not load them using File &#8594; New Molecule. Remember to load the psf file first, followed by the pdb.</li>
+                        <li>When the psf was generated, VMD added hydrogen to all of the amino acids. Hydrogens are not present in x-ray crystal structures because they are smaller than x-ray wavelengths and the single electron does not interact with x-rays</li>
+                    </ol>
+                    <strong>Solvating the Protein</strong>
+                    <ol>
+                        <li>We want to encapsulate our protein in a sphere of water. Do do this, we first need to download the file wat_sphere.tcl and put it into your working directory</li>
+                        <li>In TkConsole type
+                            <br><br><pre>source wat_sphere.tcl
+                            <br>addsphere le0_autopsf</pre></li>
+                        <li>You should see output in the console with center of mass and radius values. Copy these down -- they'll be important later.</li>
+                        <li>Load the psf then pdb files (le0_autopsf_ws). You should see your protein surrounded by a minimal water sphere</li>
+                    </ol>
+                    <strong>Equilibrating and Simulating</strong>
+                    <ol>
+                        <li>Log on to your computer and make a new directory, call it whatever you like.... "lab4" might be nice. Within this file, make another directory. Call it whatever you like... maybe "solvated"</li>
+                        <li>Download the configuration file from blackboard. Put this file (le0.conf) as well as the psf and pdb files you created into this directory. Also download the topology zip. After downloading it onto your local machine, unzip it, and put the whole file into the lab4 directory (not the solvated directory)</li>
+                        <li>There are a few parameters to modify in the configuration file:
+                            <ul>
+                                <li>structure: this should be whatever you called your psf file</li>
+                                <li>coordinates: this should be whatever you called your pdb file</li>
+                                <li>parameters: <TT>../topology/par_all27_prot_lipid.inp</TT></li>
+                                <li>Set temperature: leave it at 280 for now.</li>
+                                <li>Under the heading "EXTRA PARAMETERS" there are five commented lines. Uncomment these and change the values from:
+                                    <br><TT> sphericalBCcenter   30.3081743413, 28.8049907121, 15.353994423 </TT>
+                                    <br>to your center of sphere coordinates (from the numbers you took note of above)
+                                    <br>and
+                                    <br><TT>sphericalBCr1 26.0</TT>
+                                    <br>to the correct radius (from the numbers you took note of above)</li>
+                                <li>Minimization: 1000</li>
+                                <li>run: 2500</li>
+                            </ul></li>
+                        <li>Copy one of your old .pbs submission scripts from one of your old jobs into your working directory. This file will need a few modifications as well.
+                            <ul>
+                                <li>The line beginning "export WD=" is followed by the location of your working directory. Change this to match your new working directory</li>
+                                <li>The line "export input=namd.conf" will need to be updated to your new .conf file name.</li>
+                                <li>The line beginning "export output=" will need to be updated with a new output logfile name.</li>
+                                <li>At the top, there is a line containing nodes=1:ppn=8... make sure it is ppn=8 and not ppn=1.</li>
+                            </ul></li>
+                        <li>Submit the job just as you have done in the past! Take note of the time when you submit it.</li>
+                        <li>Let the job go a little while then check in on the output. How long has it been running? How many steps has it taken? Estimate how long (wallclock time) it will take to finish the calculation. Can you adjust the calculation so that it run for about three hours before completion? Kill the job, and make this modification to the number of run steps in your configuration file.</li>
+                        <li>At this point you may want to finish the next step. Then return and submit this one right before you leave for the day.</li>
+                    </ol>
+                    <strong>Vacuum</strong>
+                    <ol>
+                        <li>Repeat all of the above, except the solvation step to create a protein in vacuum.
+                            <ul>
+                                <li>For this simulation, leave the five "EXTRA PARAMETERS" lines in the configuration file commented. (i.e. Leave the # in front of those lines so that NAMD doesn't read them)</li>
+                                <li>Adjust the number of run steps you used for your solvated protein to match the number of run steps in this protein <em>in vacuo</em>. (It won't take as long for this one to complete)</li>
+                            </ul></li>
+                    </ol>
+                    
+                    Queue them up, let them run, and come back on Thursday!
+                    
+                </section>
                 
+                <section class="block" id="proteinanalysis">
+                    
+                    <h2>
+                        <a href="lab4.html#proteinanalysis" class="anchor">
+                            Analysis of Protein Data
+                        </a>
+                    </h2>
+                    
+                    <p>Just as we did and RDF with Argon to determine structural properties, we can analyze our hairpin protein by calculating the distance between atoms over an entire trajectory.</p>
+                    
+                    It is easy to rationalize that our protein might behave something like this if the configurations are histogrammed over some reaction coordinate. The energy is low when the ends are close together. It needs to go through some higher energy transition state to flip around. Then fall into some other low energy state.
+                    
+                    <br><center><img src="img/gibbs.png" alt="gibbs" width="759" height="579" /></center>
+                    
+                    <br>Our protein doesn't flip, so we will only see half of this graph in our analysis. (The left half)
+                    
+                    One might also imagine that these plots will be altered if the protein is modified in some way: shifting it along the reaction coordinate or broadening the standard deviation of the distribution. You will calculate the distributions for three cases:
+                    <ul>
+                        <li>Protein in vacuum at 280 K (Control)</li>
+                        <li>Protein in vacuum at 310 K</li>
+                        <li>Solvated protein at 280 K</li>
+                    </ul>
+                    The two vacuum simulations were each run for 5,000,000 steps. The solvated protein was run for 1,000,000 steps. This means that when you construct your histograms, <strong>they will need to be <em>properly</em> normalized</strong>.
+                    
+                    <br><br><strong>Getting the distance data</strong>
+                    <ol>
+                        <li>There are several pieces of data to analyze. Each of the trajectories are relatively large, so you will need to be patient loading them into VMD.</li>
+                        <li>Open the trajectory labeled vacuum 280 in VMD. Remember that you need to load the .psf file first, followed by the .dcd.</li>
+                        <li>Open TkConsole and navigate to the vacuum 280 directory.</li>
+                        <li>Now type the following:
+                            <br><br><pre>source ../distance.tcl
+                            <br>dist {resid 1} {resid 12} 50 dist.csv hist.csv</pre></li>
+                        <li>This will create two files, dist.csv and hist.csv.
+                            <ul>
+                                <li>dist.csv contains the distance between the 1st and 12th residues in the chain for each time step. The procedure calculates the center of mass for each amino acid first and uses the center of mass to calculate distance.</li>
+                                <li>hist.csv contains a histogram of all the distances separated into 50 bins. You can adjust the number of bins in the <code>dist {resid 1} {resid 12} 50 dist.csv hist.csv</code> statement above</li>
+                            </ul></li>
+                        <li>Repeat this process for each of the simulations.
+                            <ul>
+                                <li>You will need to remove the molecule from the main window before proceeding to the next one</li>
+                                <li><strong>You also need to navigate to the correct directory before running the dist command</strong> Otherwise it will overwrite your last hist.csv and dist.csv</li>
+                            </ul></li>
+                    </ol>
+                    
+                    <strong>Viewing the Trajectory</strong>
+                    <ol>
+                    	<li>You can change the graphical representation of any of the trajectories: ball and stick models, licorice bonds, lines, etc. When you have a protein, you can also represent the molecules with a ribbon. This is especially useful when you are viewing the solvated protein.</li>
+                    	<li>With your solvated protein trajectory loaded, go to Graphics &#8594; Representations. Under Drawing Method choose Lines.</li>
+                    	<li>Now click Create Rep</li>
+                    	<li>With this new representation under Selected Atoms type protein</li>
+                    	<li>Under Drawing Method, choose an option that makes it easier to see the protein in amongst all those water molecules. This is a much better image when you are rendering figures.</li>
+                    </ol>
+                    
+
+                    <strong>Analyzing the Distance information</strong>
+                    <ol>
+                    	<li>Load each of the datasets into Excel. It will probably open in Excel by default. Combine them all into one workbook (Make sure you keep track of which one is which)</li>
+                    	<li>Make plots of the distance vs time data for each of the simulations. (The frames are captured every 200 fs) </li>
+                    	<li>Calculate the average and standard deviation for each of the simulations. Can you rationalize the differences?</li>
+                    	<li>Plot the histograms for each simulation. Are they what you expect?</li>
+                    	<li>Knowing the populations of each configuration, plot the Gibbs free energy curve. Recall that the population on any state is given by the Boltzmann distribution.</li>
+                    </ol>
+                    
+                </section>
+                
+            </section>
+                <!--
                 <section class="block" id="mo">
                     
                     <h2>
@@ -212,7 +377,7 @@
                     </ol>
                     
                 </section>
-                <!--
+                
                 <section class="block" id="assignment3">
                     
                     <h2>
