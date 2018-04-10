@@ -146,35 +146,36 @@
                         <li>Click Create Rep and for selected atoms type <code>Water</code>. Change this representation’s drawing method to Line.</li>
                         <li>A way to track if a simulation has equilibrated is to look at how much the structure of the protein has changed since the beginning of the simulation. This is done by aligning the center of mass for the protein and calculating the root mean squared displacement (RMSD) of each backbone atom. Usually the RMSD rise quickly at the start of the simulation as a protein relaxes and plateaus once the system is equilibrated.</li>
                         <li>Go to analysis in VMD and select the “RMSD trajectory” tool. Click align and calculate. Then save the data using the drop down in the top left. Plot this in excel.</li>
-                        <li>Now we get to see the real power of RDFs. Calculate 2 RDFs: the first between <code>ions</code> and <code>type OT</code>, and the second between <code>backbone</code> and <code>type OT</code>. The first is the structure of water around the ions and the second around the protein.</li>
+                        <li>Now calculate two RDFs: the first between <code>ions</code> and <code>type OT</code>, and the second between <code>backbone</code> and <code>type OT</code>. The first is the structure of water around the ions and the second around the protein.</li>
                     </ol>
                 </section>
 		
 		<section class="block" id="protein">
                     
                     <h2>
-                        <a href="lab4.html#protein" class="anchor">
+                        <a href="lab3.html#protein" class="anchor">
                             Simulation of a protein
                         </a>
                     </h2>
                     
-                    <br><img src="img/zipper.png" align=”right” hspace=”50” vspace=”50” alt="excel" width="172" height="278" />
-                    
                     <p>Your turn! So far we’ve given you most things that you need to run a simulation. Now that you are experts in submitting jobs and analyzing the output, let’s take some time to see what goes into making these input files.</p>
-                    <strong>Downloading the PDB</strong>
+                    <!--<strong>Downloading the PDB</strong>
                     <ol>
                         <li>First, go to <a href="http://www.rcsb.org/" >The Protein Data Bank</a>. The Protein Data Bank (PDB) archive is the single worldwide repository of information about the 3D structures of large biological molecules, including proteins and nucleic acids. And all free!</li>
                         <li>We are going to simulate a tryptophan zipper. It has a beta hairpin structure. Search "beta hairpin tryptophan zipper". A few results come up. Scroll down until you find the one identified as <code>1LE0</code></li>
                         <li>Click Download files &#8594; PDB Format. This will save a .pdb file to your computer. It has several configurations for this protein contained inside.</li>
                         <li>Go ahead and put it somewhere convenient on your local computer.</li>
                         <li>Open up the file in VMD to view it</li>
-                    </ol>
-                    <strong>Saving the Protein for Simulation</strong>
+                    </ol>-->
+		    <strong>Saving the Protein for Simulation</strong>
                     <ol>
+                        <li>Choose a peptide that you worked with in your last module. Build it in Avogadro, then save it as a PDB</li>
+                        <li>Go ahead and put it somewhere convenient on your local computer.</li>
+                        <li>Open up the file in VMD to view it</li>
                         <li>Open the Tk Console under the Extensions menu</li>
                         <li>In TkConsole, change directory to wherever you put your .pdb file.</li>
                         <li>In TkConsole, set a variable <code>le0</code> to store only the first peptide conformation:
-                            <br><br><pre>set le0 [atomselect top protein frame 0]</pre>
+                            <br><br><pre>set gga [atomselect top protein frame 0]</pre>
                             Instead of everyone choosing frame 0, let's have a variety of starting points. choose any configuration between 0 and 19.</li>
                         <li>Write a new pdb file saving only the protein (no NH2 will be saved) of the first frame
                             <br><br><pre>$le0 writepdb le0.pdb</pre></li>
